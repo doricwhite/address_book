@@ -3,6 +3,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+/* DATABASE STRUCTURE */
 const addressBookSchema = new Schema({
   firstName: {
     type: String,
