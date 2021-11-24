@@ -1,0 +1,25 @@
+<% layout('/layout/boilerplate') %>
+<div class="card">
+  <header class="card-header">
+    <p class="card-header-title">
+      <%= detailedInfo.firstName %> <%= detailedInfo.lastName %>
+    </p>
+  </header>
+  <div class="card-content">
+    <div class="content">
+      <p><strong>Address: </strong> <%= detailedInfo.address %></p>
+      <p><strong>Phone Number: </strong><%= detailedInfo.phoneNumber %></p>
+      <p><strong>Email Address:</strong> <%= detailedInfo.email %></p>
+      <p><strong>Birthday:</strong> <%= detailedInfo.birthday %></p>
+    </div>
+  </div>
+  <footer class="card-footer">
+    <a href="/address-book/index" class="card-footer-item">Home</a>
+    <a
+      href="/address-book/<%= detailedInfo._id %>/update"
+      class="card-footer-item"
+      >Edit</a
+    >
+    <a href="#" class="card-footer-item">Delete</a>
+  </footer>
+</div>

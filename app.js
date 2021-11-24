@@ -33,9 +33,11 @@ db.once("open", () => {
   console.log("Connection to addressBook DB Successful");
 });
 
-//HOME PAGE
-app.get("/address-book/index", (req, res) => {
-  res.render("address-book/index");
+/* HOME PAGE: LIST ALL THE FULL NAMES AVAILABLE*/
+app.get("/address-book/index", async (req, res) => {
+  const allInfo = await AddressBook.find({});
+
+  res.render("address-book/index", { allInfo });
 });
 
 /* THIS WAS USE TO TEST WRITING INFORMATION TO THE DATABASE
@@ -65,6 +67,27 @@ app.post("/address-book", async (req, res) => {
   await newInfo.save();
 
   res.render("address-book/index");
+});
+
+/* ADDRESS DETAILS */
+app.get("/address-book/:id", async (req, res, next) => {
+  const detailedInfo = await AddressBook.findById(req.params.id);
+
+  res.render("address-book/details", { detailedInfo });
+});
+
+/* UPDATE EXISTING ADDRESS */
+app.get("/address-book/:id/update", async (req, res) => {
+  const updateInfo = await AddressBook.findById(req.params.id);
+  res.render("address-book/update", { updateInfo });
+});
+
+/* WRITE UPDATE TO DATABASE (FIND AND UPDATE) */
+app.put("/address-book/:id", async (req, res) => {
+  const { id } = req.params;
+  const updateInfo = await AddressBook.findByIdAndUpdate(id, {
+    ...req.body.addressdb,
+  });
 });
 
 /* LOCALHOST LISTENING PORT */

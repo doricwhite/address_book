@@ -1,3 +1,12 @@
 <% layout('/layout/boilerplate') %>
 <!--LIST ALL ADDRESS AVAILABLE IN THE ADDRESS BOOK-->
 <h1>All Names Available</h1>
+<% for (let name of allInfo ) {%>
+<ul>
+  <li>
+    <a href="/address-book/<%= name._id %> "
+      ><%= `${name.firstName} ${name.lastName}` %></a
+    >
+  </li>
+</ul>
+<% } %>
