@@ -104,5 +104,5 @@ app.delete("/address-book/:id", async (req, res, next) => {
 
 /* LOCALHOST LISTENING PORT */
 app.listen(3000, (req, res) => {
-  console.log("Runnging port running successfully");
+  console.log("Localhost Port 3000 Running Successfully");
 });
