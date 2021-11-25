@@ -1,10 +1,13 @@
 <% layout('/layout/boilerplate') %>
 <div class="card">
   <header class="card-header">
+    <!-- DISPLAYS CONTACT NAME -->
     <p class="card-header-title">
       <%= detailedInfo.firstName %> <%= detailedInfo.lastName %>
     </p>
   </header>
+
+  <!-- DISPLAY CONTACT DETAILS -->
   <div class="card-content">
     <div class="content">
       <p><strong>Address: </strong> <%= detailedInfo.address %></p>
@@ -13,6 +16,8 @@
       <p><strong>Birthday:</strong> <%= detailedInfo.birthday %></p>
     </div>
   </div>
+
+  <!-- FOOTER WITH LINKS TO ACTIONS -->
   <footer class="card-footer">
     <a href="/address-book/index" class="card-footer-item">Home</a>
     <a
@@ -20,6 +25,17 @@
       class="card-footer-item"
       >Edit</a
     >
-    <a href="#" class="card-footer-item">Delete</a>
+    <form
+      action="/address-book/<%= detailedInfo._id %>?_method=DELETE"
+      class="card-footer-item red"
+      method="post"
+    >
+      <button
+        class="card-footer-item red"
+        onclick="return confirm('Are you sure you want to delete this item')"
+      >
+        Delete
+      </button>
+    </form>
   </footer>
 </div>

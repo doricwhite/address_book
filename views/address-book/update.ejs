@@ -1,114 +1,123 @@
 <% layout('/layout/boilerplate') %>
 
 <!--EDIT INFORMATION IN THE ADDRESS BOOK -->
-<div><h1>Update Contact Information</h1></div>
-<div class="notification">
-  <!--FORM START-->
-  <form action="/address-book/<%= updateInfo._id %>/?_method=PUT" method="post">
-    <!-- First Name -->
-    <div class="field">
-      <label class="label" for="fname">First Name</label>
-      <div class="control">
-        <input
-          class="input"
-          type="text"
-          id="fname"
-          name="addressdb[firstName]"
-          value="<%= updateInfo.firstName %> "
-          placeholder="Enter Your First Name"
-        />
-      </div>
-    </div>
+<div class="card">
+  <header class="card-header">
+    <p class="card-header-title">Edit User Information</p>
+  </header>
+  <div class="card-content">
+    <div class="content">
+      <!--FORM START-->
+      <form
+        action="/address-book/<%= updateInfo._id %>/?_method=PUT"
+        method="post"
+      >
+        <!-- First Name -->
+        <div class="field">
+          <label class="label" for="fname">First Name</label>
+          <div class="control">
+            <input
+              class="input"
+              type="text"
+              id="fname"
+              name="addressdb[firstName]"
+              value="<%= updateInfo.firstName %> "
+              placeholder="Enter Your First Name"
+            />
+          </div>
+        </div>
 
-    <!-- Last Name -->
-    <div class="field">
-      <label class="label" for="lname">Last Name</label>
-      <div class="control">
-        <input
-          class="input"
-          type="text"
-          id="lname"
-          name="addressdb[lastName]"
-          value="<%= updateInfo.lastName %> "
-          placeholder="Enter Your First Name"
-        />
-      </div>
-    </div>
+        <!-- Last Name -->
+        <div class="field">
+          <label class="label" for="lname">Last Name</label>
+          <div class="control">
+            <input
+              class="input"
+              type="text"
+              id="lname"
+              name="addressdb[lastName]"
+              value="<%= updateInfo.lastName %> "
+              placeholder="Enter Your First Name"
+            />
+          </div>
+        </div>
 
-    <!-- Mailing Address -->
-    <div class="field">
-      <label class="label" for="address">Address</label>
-      <div class="control">
-        <input
-          class="input"
-          type="text"
-          id="address"
-          name="addressdb[address]"
-          value="<%= updateInfo.address %> "
-          placeholder="Enter your mailing address"
-          required
-        />
-      </div>
-    </div>
+        <!-- Mailing Address -->
+        <div class="field">
+          <label class="label" for="address">Address</label>
+          <div class="control">
+            <input
+              class="input"
+              type="text"
+              id="address"
+              name="addressdb[address]"
+              value="<%= updateInfo.address %> "
+              placeholder="Enter your mailing address"
+              required
+            />
+          </div>
+        </div>
 
-    <!-- Email Address -->
-    <div class="field">
-      <label class="label" for="email">Email</label>
-      <div class="control">
-        <input
-          class="input"
-          type="email"
-          id="email"
-          name="addressdb[email]"
-          value="<%= updateInfo.email %> "
-          placeholder="Email input"
-          required
-        />
-      </div>
-    </div>
+        <!-- Email Address -->
+        <div class="field">
+          <label class="label" for="email">Email</label>
+          <div class="control">
+            <input
+              class="input"
+              type="email"
+              id="email"
+              name="addressdb[email]"
+              value="<%= updateInfo.email %> "
+              placeholder="Email input"
+              required
+            />
+          </div>
+        </div>
 
-    <!-- Phone Number -->
-    <div class="field">
-      <label class="label" for="contact">Phone Number</label>
-      <div class="control">
-        <input
-          class="input"
-          type="tel"
-          id="contact"
-          name="addressdb[phoneNumber]"
-          value="<%= updateInfo.phoneNumber %> "
-          placeholder="Enter your contact number"
-          required
-        />
-      </div>
-    </div>
+        <!-- Phone Number -->
+        <div class="field">
+          <label class="label" for="contact">Phone Number</label>
+          <div class="control">
+            <input
+              class="input"
+              type="tel"
+              id="contact"
+              name="addressdb[phoneNumber]"
+              value="<%= updateInfo.phoneNumber %> "
+              placeholder="Enter your contact number"
+              required
+            />
+          </div>
+        </div>
 
-    <!-- Birthday Number -->
-    <div class="field">
-      <label class="label" for="bday">Birthday</label>
-      <div class="control">
-        <input
-          class="input"
-          type="date"
-          id="bday"
-          name="addressdb[birthday]"
-          value="<%= updateInfo.birthday %> "
-          placeholder="Enter your birthday"
-        />
-      </div>
-    </div>
+        <!-- Birthday Number -->
+        <div class="field">
+          <label class="label" for="bday">Birthday</label>
+          <div class="control">
+            <input
+              class="input"
+              type="date"
+              id="bday"
+              name="addressdb[birthday]"
+              value="<%= updateInfo.birthday %> "
+              placeholder="Enter your birthday"
+            />
+          </div>
+        </div>
 
-    <!-- Form Buttons -->
-    <div class="field is-grouped">
-      <div class="control">
-        <button class="button is-link">Update</button>
-      </div>
-      <div class="control">
-        <button class="button is-link is-light">
-          <a href="/address-book/<%= updateInfo._id %> ">Cancel</a>
-        </button>
-      </div>
+        <!-- Form Buttons -->
+        <div class="field is-grouped">
+          <div class="control">
+            <button class="button is-link">Update</button>
+          </div>
+          <div class="control">
+            <button class="button is-link is-light">
+              <a href="/address-book/<%= updateInfo._id %> ">Cancel</a>
+            </button>
+          </div>
+        </div>
+      </form>
+      <!--FORM END-->
     </div>
-  </form>
-  <!--FORM END-->
+  </div>
 </div>

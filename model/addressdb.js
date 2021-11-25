@@ -15,9 +15,11 @@ const addressBookSchema = new Schema({
   },
   address: {
     type: String,
+    require: true,
   },
   phoneNumber: {
-    type: String,
+    type: Number,
+    min: 1111111111,
   },
   email: {
     type: String,

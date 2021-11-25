@@ -4,15 +4,22 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- BULMA CSS FRAMEWORK -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
     />
-    <title>Address Book</title>
+
+    <!-- CUSTOM CSS -->
+    <link rel="stylesheet" href="/public/style.css" />
+
+    <title>Contact Info Book</title>
   </head>
   <body>
     <div class="container is-max-desktop">
-      <main><%- body %></main>
+      <div class="notification">
+        <main><%- body %></main>
+      </div>
     </div>
   </body>
 </html>

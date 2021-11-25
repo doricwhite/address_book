@@ -13,6 +13,9 @@ app.engine("ejs", ejsMate);
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
+/* SERVING STATICS FILES (CSS) */
+app.use("/public", express.static(path.join(__dirname, "public")));
+
 app.use(express.urlencoded({ extended: true }));
 
 /* METHOD OVERIDE TO PERFORM ACTIVITIES OTHER THAN "POST" WHEN USING A FORM */
@@ -65,8 +68,7 @@ app.get("/address-book/add_address", (req, res) => {
 app.post("/address-book", async (req, res) => {
   const newInfo = new AddressBook(req.body.addressdb);
   await newInfo.save();
-
-  res.render("address-book/index");
+  res.redirect(`address-book/${newInfo._id}`);
 });
 
 /* ADDRESS DETAILS */
@@ -77,17 +79,27 @@ app.get("/address-book/:id", async (req, res, next) => {
 });
 
 /* UPDATE EXISTING ADDRESS */
-app.get("/address-book/:id/update", async (req, res) => {
+app.get("/address-book/:id/update", async (req, res, next) => {
   const updateInfo = await AddressBook.findById(req.params.id);
   res.render("address-book/update", { updateInfo });
 });
 
 /* WRITE UPDATE TO DATABASE (FIND AND UPDATE) */
-app.put("/address-book/:id", async (req, res) => {
+app.put("/address-book/:id", async (req, res, next) => {
   const { id } = req.params;
   const updateInfo = await AddressBook.findByIdAndUpdate(id, {
     ...req.body.addressdb,
   });
+
+  res.redirect(`/address-book/${updateInfo._id}`);
+});
+
+/* DELETES INFORMATION FROM THE DATABASE (FIND AND DELETE) */
+app.delete("/address-book/:id", async (req, res, next) => {
+  const { id } = req.params;
+  const deleteInfo = await AddressBook.findByIdAndDelete(id);
+
+  res.redirect("/address-book/index");
 });
 
 /* LOCALHOST LISTENING PORT */

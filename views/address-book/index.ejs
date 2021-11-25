@@ -1,12 +1,29 @@
 <% layout('/layout/boilerplate') %>
 <!--LIST ALL ADDRESS AVAILABLE IN THE ADDRESS BOOK-->
-<h1>All Names Available</h1>
-<% for (let name of allInfo ) {%>
-<ul>
-  <li>
-    <a href="/address-book/<%= name._id %> "
-      ><%= `${name.firstName} ${name.lastName}` %></a
+<div class="card">
+  <header class="card-header">
+    <p class="card-header-title">All Contacts</p>
+  </header>
+
+  <!-- DISPLAYS LIST OF CONTACTS CURRENTLY AVAILABLE -->
+  <div class="card-content">
+    <div class="content">
+      <% for (let name of allInfo ) {%>
+      <ul>
+        <li>
+          <a href="/address-book/<%= name._id %> "
+            ><%= `${name.firstName} ${name.lastName}` %></a
+          >
+        </li>
+      </ul>
+      <% } %>
+    </div>
+  </div>
+
+  <!-- ADD NEW CONTACT -->
+  <footer class="card-footer">
+    <a href="/address-book/add_address" class="card-footer-item"
+      >Add New Contact</a
     >
-  </li>
-</ul>
-<% } %>
+  </footer>
+</div>

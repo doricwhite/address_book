@@ -1,0 +1,17 @@
+a {
+  text-decoration: none !important;
+}
+
+a:hover {
+  color: royalblue !important;
+}
+
+.red {
+  background-color: #f14668;
+  border: none;
+  color: #fff;
+}
+
+li {
+  line-height: 7px;
+}
